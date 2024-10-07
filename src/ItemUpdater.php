@@ -17,6 +17,8 @@ class ItemUpdater implements IItemUpdater
         else{
             $item->quality--;
         }
+        // Ensure quality is never negative
+        $item->quality = max(0, $item->quality);
     }
     
 }
