@@ -1,105 +1,62 @@
-# GildedRose Kata - PHP Version
+# Gilded Rose Refactoring Kata
 
-This is the PHP version of the GildedRose exercise.
-Gilded Rose is a small inn with a prime location in a prominent city ran by a friendly innkeeper named Allison. They buy and sell only the finest goods. Their goods are constantly degrading in Quality as they approach their sell by date.
+Welcome to the PHP version of the GildedRose Kata! 
 
-They have a system in place that updates inventory. The following is a brief description of the system:
+ Gilded Rose is a small inn with a prime location in a prominent city ran by a friendly innkeeper named Allison. They buy and sell only the finest goods. Their goods are constantly degrading in Quality as they approach their sell by each passing date .
+At Gilded Rose, all items have a SellIn value denoting the number of days left to sell the item, and a Quality value indicating its value. Here's a brief overview of how the system operates:
 
-- All items have a SellIn value which denotes the number of days to sell the items
+Each day, both the SellIn and Quality values of all items are updated.
+As an item's sell-by date approaches, its quality decreases. Once the sell-by date has passed, quality degrades twice as fast.
+The quality of an item is never negative.
+Some items have special behavior:
+    "Aged Brie" increases in quality over time.
+    "Sulfuras" is a legendary item and never decreases in quality or has to be sold.
+    "Backstage passes" increase in quality as the sell-by date approaches, with special rules for when the concert is near.
+    The newly added "Conjured" items degrade in quality twice as fast as normal items.
 
-- All items have a Quality value which denotes how valuable the item is
+## Changes and Improvements
 
-- At the end of each day the system lowers both values for every item
+In this version of the Kata, I made several enhancements:
 
-- Once the sell by date has passed, Quality degrades twice as fast
-
-- The Quality of an item is never negative
-
-The following are special cases:
-
-- "Aged Brie" actually increases in Quality the older it gets
-
-- The Quality of an item is never more than 50
-
-- "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
-
-- "Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
-
-- Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but
-
-- Quality drops to 0 after the concert
-
-The following new item required an update to the system:
-
-- "Conjured" items degrade in Quality twice as fast as normal items
-
-## Upgrade Changes
-
-The following is a short description of the software updates:
-1) Creating and running tests before and after code changes to ensure code reliability
-2) Refactoring code to improve efficiency and readability by consolidating duplicate code and reorganizing the code into smaller functions. Refactoring code changes have been committed in small increments 
-3) Adding the new 'Conjured' item feature.
-
-## Installation
-
-The kata uses:
-
-- [8.0+](https://www.php.net/downloads.php)
-- [Composer](https://getcomposer.org)
-
-Recommended:
-
-- [Git](https://git-scm.com/downloads)
-
-See [GitHub cloning a repository](https://help.github.com/en/articles/cloning-a-repository) for details on how to
-create a local copy of this project on your computer.
-
-```sh
-git clone git@github.com:yehudit609/GildedRose.git
-```
-
-or
-
-```shell script
-git clone https://github.com/yehudit609/GildedRose.git
-```
-
-Install all the dependencies using composer
-
-```shell script
-cd ./GildedRose
-composer install
-```
-
-## Dependencies
-
-The project uses composer to install:
-
-- [PHPUnit](https://phpunit.de/)
-- [ApprovalTests.PHP](https://github.com/approvals/ApprovalTests.php)
-- [PHPStan](https://github.com/phpstan/phpstan)
-- [Easy Coding Standard (ECS)](https://github.com/symplify/easy-coding-standard)
+Implementation of comprehensive tests to ensure the reliability of the code.
+Refactoring of the existing codebase to enhance efficiency and readability. This includes consolidating duplicate code and breaking down complex functions into smaller, manageable ones.
+Adding the new 'Conjured' item feature to the system.
 
 ## Folders
 
-- `src` - contains the two classes:
-    - `Item.php` 
-    - `GildedRose.php` - this class is refactored, and includes the new feature
-- `tests` - contains the tests
-    - `GildedRoseTest.php` - includes all the tests
-     
-- `Fixture`
-    - `texttest_fixture.php` this could be used by an ApprovalTests, or run from the command line
+-  `src`: Contains the main application code:
+    - `Item.php`: Represents an item with its properties   
+    - `GildedRose.php`: Contains the main page for updating item qualities, from this page thers other updaiting functions thats called 
+    - `AgedBrieItemUpdater, BackstagePassesItemUpdater, ConjredUpdater, IItemUpdater, SulfurasItemUpdater`: classes that I added, thay contain updating functions for different items (each item in a different class)
+- `tests`: Contains PHPUnit tests
+        GildedRoseTest.php: Includes all the tests
+- `Fixture`: Contains a script for running a fixture to test the application
 
-## Fixture
+    
+ 
 
-To run the fixture from the php directory:
+ ## Installation
 
-```shell
-php .\fixtures\texttest_fixture.php 10
-```
+To get started, ensure you have the following installed on your system:
 
-Change **10** to the required days.
+    PHP 8.0+
+    Composer
+
+Clone the repository to your local machine:
+
+    git clone git@github.com:yehudit609/GildedRose.git
+
+or
+
+    git clone https://github.com/yehudit609/GildedRose.git
+
+Navigate to the project directory:
+
+    cd GildedRose
+
+Install dependencies using Composer:
+
+    composer install
 
 ## Testing
 
@@ -148,33 +105,6 @@ PHPUnit `composer check-cs` can be run:
 
 ```shell script
 cc.bat
-```
 
-### Fix Code
 
-ECS provides may code fixes, automatically, if advised to run --fix, the following script can be run:
-
-```shell script
-composer fix-cs
-```
-
-On Windows a batch file has been created, like an alias on Linux/Mac (e.g. `alias fc="composer fix-cs"`), the same
-PHPUnit `composer fix-cs` can be run:
-
-```shell script
-fc.bat
-```
-
-## Static Analysis
-
-PHPStan is used to run static analysis checks:
-
-```shell script
-composer phpstan
-```
-
-On Windows a batch file has been created, like an alias on Linux/Mac (e.g. `alias ps="composer phpstan"`), the same
-PHPUnit `composer phpstan` can be run:
-
-```shell script
-ps.bat
+האם זה מתאים לפתרון שלי?
