@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace GildedRose;
 
-class BackstagePassesItemUpdater implements IItemUpdater
+class BackstagePassesItemUpdater implements IitemUpdater
 {
     public function update(Item $item): void
     {
@@ -16,10 +16,7 @@ class BackstagePassesItemUpdater implements IItemUpdater
         } else {
             $item->quality++;
         }    
-
-        if($item->quality > 50) {
-            $item->quality = 50;
-        }
+        $item = min($item->quality,50);
 }
     
 }

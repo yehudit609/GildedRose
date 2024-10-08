@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace GildedRose;
 
-class SulfurasItemUpdater implements IItemUpdater
+class SulfurasItemUpdater implements IitemUpdater
 {
     //The function is based on the requirement:
     //"Sulfuras", being a legendary item, never has to be sold or decreases in Quality

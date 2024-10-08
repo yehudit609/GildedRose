@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace GildedRose;
 
-class ConjredUpdater implements IItemUpdater
+class ConjredUpdater implements IitemUpdater
 {
     public function update(Item $item): void
     {

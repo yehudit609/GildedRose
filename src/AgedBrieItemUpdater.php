@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace GildedRose;
 
-class AgedBrieItemUpdater implements IItemUpdater
+class AgedBrieItemUpdater implements IitemUpdater
 {
     public function update(Item $item): void
     {

@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace GildedRose;
 
-class ItemUpdater implements IItemUpdater
+class ItemUpdater implements IitemUpdater
 {
     //The function is based on the requirement:
     //Once the sell by date has passed, Quality degrades twice as fast
