@@ -1,7 +1,44 @@
 # GildedRose Kata - PHP Version
 
-See the [top level readme](../README.md) for general information about this exercise. This is the PHP version of the
-GildedRose Kata.
+This is the PHP version of the GildedRose exercise.
+Gilded Rose is a small inn with a prime location in a prominent city ran by a friendly innkeeper named Allison. They buy and sell only the finest goods. Their goods are constantly degrading in Quality as they approach their sell by date.
+
+They have a system in place that updates inventory. The following is a brief description of the system:
+
+- All items have a SellIn value which denotes the number of days to sell the items
+
+- All items have a Quality value which denotes how valuable the item is
+
+- At the end of each day the system lowers both values for every item
+
+- Once the sell by date has passed, Quality degrades twice as fast
+
+- The Quality of an item is never negative
+
+The following are special cases:
+
+- "Aged Brie" actually increases in Quality the older it gets
+
+- The Quality of an item is never more than 50
+
+- "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
+
+- "Backstage passes", like aged brie, increases in Quality as its SellIn value approaches;
+
+- Quality increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but
+
+- Quality drops to 0 after the concert
+
+The following new item required an update to the system:
+
+- "Conjured" items degrade in Quality twice as fast as normal items
+
+## Upgrade Changes
+
+The following is a short description of the software updates:
+1) Creating and running tests before and after code changes to ensure code reliability
+2) Refactoring code to improve efficiency and readability by consolidating duplicate code and reorganizing the code into smaller functions. Refactoring code changes have been committed in small increments 
+3) Adding the new 'Conjured' item feature.
 
 ## Installation
 
@@ -18,19 +55,19 @@ See [GitHub cloning a repository](https://help.github.com/en/articles/cloning-a-
 create a local copy of this project on your computer.
 
 ```sh
-git clone git@github.com:emilybache/GildedRose-Refactoring-Kata.git
+git clone git@github.com:yehudit609/GildedRose.git
 ```
 
 or
 
 ```shell script
-git clone https://github.com/emilybache/GildedRose-Refactoring-Kata.git
+git clone https://github.com/yehudit609/GildedRose.git
 ```
 
 Install all the dependencies using composer
 
 ```shell script
-cd ./GildedRose-Refactoring-Kata/php
+cd ./GildedRose
 composer install
 ```
 
@@ -46,13 +83,11 @@ The project uses composer to install:
 ## Folders
 
 - `src` - contains the two classes:
-    - `Item.php` - this class should not be changed
-    - `GildedRose.php` - this class needs to be refactored, and the new feature added
+    - `Item.php` 
+    - `GildedRose.php` - this class is refactored, and includes the new feature
 - `tests` - contains the tests
-    - `GildedRoseTest.php` - starter test.
-        - Tip: ApprovalTests has been included as a dev dependency, see the PHP version of
-          the [Theatrical Players Refactoring Kata](https://github.com/emilybache/Theatrical-Players-Refactoring-Kata/)
-          for an example
+    - `GildedRoseTest.php` - includes all the tests
+     
 - `Fixture`
     - `texttest_fixture.php` this could be used by an ApprovalTests, or run from the command line
 
@@ -143,6 +178,3 @@ PHPUnit `composer phpstan` can be run:
 
 ```shell script
 ps.bat
-```
-
-**Happy coding**!
